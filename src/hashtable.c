@@ -22,3 +22,29 @@ static table* new_table (){
     
     return i;
 }
+
+static void del_node (node* i){
+
+    free(i -> key);
+    free(i -> number);
+    free(i);
+}
+
+static void del_table (table* t){
+
+    int max = t -> size;
+    int count = t-> count;
+
+    for(int i=0; i <= max; i++)
+    {
+        node* item = i -> items[i];
+
+        if(item != NULL)
+            del_node(item);
+
+    }
+
+    free(t -> items);
+    free(t);
+    
+}
