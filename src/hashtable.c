@@ -63,5 +63,13 @@ static int hash(const char* s, const int a, const int m){
     return hash;
 }
 
+static int get_hash(const char* s, const int a, const int b, const int m, const int attempts);
+{
+    int hash_1 = hash(s, a, m);
+    int hash_2 = hash(s, b, m);
 
+    int hash_out = hash_1 + (attempts * hash_2)% m;
+
+    return hash_out;
+}
 
