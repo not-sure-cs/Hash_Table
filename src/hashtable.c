@@ -48,3 +48,20 @@ static void del_table (table* t){
     free(t);
     
 }
+
+static int hash(const char* s, const int a, const int m){
+
+    long hash = 0;
+    int len = strlen(s);
+
+    for(int i = 0; i < len; i++)
+    {
+        hash = (long)pow(a, len - (i+1)) * s[i];
+        hash = hash % m;
+    }
+
+    return hash;
+}
+
+
+
